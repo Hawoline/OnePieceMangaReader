@@ -18,7 +18,6 @@ public class ChaptersAdapter extends RecyclerView.Adapter<ChaptersAdapter.Chapte
         this.chapters = chapters;
     }
 
-
     @NonNull
     @Override
     public ChapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

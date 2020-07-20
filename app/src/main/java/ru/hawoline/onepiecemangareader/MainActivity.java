@@ -22,7 +22,6 @@ public class MainActivity extends Activity implements MainView {
     private RecyclerView chapters_recycler_view, frames_recycler_view;
 
     private OnePieceMangaParser onePieceMangaParser;
-    private OnePieceChapterParser onePieceChapterParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class MainActivity extends Activity implements MainView {
         onePieceManga = new Manga("https://one-pieceonline.com/");
 
         chapters_recycler_view = findViewById(R.id.chapters_recycler_view);
-        frames_recycler_view = findViewById(R.id.chapters_recycler_view);
+        frames_recycler_view = findViewById(R.id.frames_recycler_view);
 
         chaptersAdapter = new ChaptersAdapter(onePieceManga.getChapters());
         chapters_recycler_view.setAdapter(chaptersAdapter);
@@ -44,10 +43,8 @@ public class MainActivity extends Activity implements MainView {
         frames_recycler_view.setAdapter(framesAdapter);
 
         onePieceMangaParser = new OnePieceMangaParser();
-        onePieceChapterParser = new OnePieceChapterParser();
 
         onePieceMangaParser.execute();
-
     }
 
     @Override
@@ -55,7 +52,6 @@ public class MainActivity extends Activity implements MainView {
         super.onStop();
 
         onePieceMangaParser.cancel(true);
-        onePieceChapterParser.cancel(true);
     }
 
     @Override
@@ -65,6 +61,7 @@ public class MainActivity extends Activity implements MainView {
         chapters_recycler_view.setVisibility(View.GONE);
         frames_recycler_view.setVisibility(View.VISIBLE);
 
+        OnePieceChapterParser onePieceChapterParser = new OnePieceChapterParser();
         onePieceChapterParser.execute();
     }
 
@@ -104,6 +101,9 @@ public class MainActivity extends Activity implements MainView {
                     }
                 }
 
+                for (int latestChapter = 0; latestChapter < 10; latestChapter++) {
+                    onePieceChapters.remove(onePieceChapters.size() - 1);
+                }
                 onePieceManga.setChapters(onePieceChapters);
             } catch (IOException e) {
                 e.printStackTrace();
