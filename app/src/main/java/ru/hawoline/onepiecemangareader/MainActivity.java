@@ -65,17 +65,13 @@ public class MainActivity extends Activity implements MainView {
         chapters_recycler_view.setVisibility(View.GONE);
         frames_recycler_view.setVisibility(View.VISIBLE);
 
-        if (onePieceChapterParser.getStatus() == AsyncTask.Status.PENDING) {
-            onePieceChapterParser.execute();
-        }
+        onePieceChapterParser.execute();
     }
 
     @Override
     public void showManga() {
         chapters_recycler_view.setVisibility(View.VISIBLE);
         frames_recycler_view.setVisibility(View.GONE);
-
-
     }
 
     @Override
@@ -117,6 +113,8 @@ public class MainActivity extends Activity implements MainView {
         }
         @Override
         protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
             chaptersAdapter = new ChaptersAdapter(onePieceManga.getChapters());
             chapters_recycler_view.setAdapter(chaptersAdapter);
         }
@@ -136,11 +134,14 @@ public class MainActivity extends Activity implements MainView {
                 ArrayList<String> images = new ArrayList<>();
 
                 pagesElements = document.select("p.separator");
+                if (pagesElements.isEmpty()) {
+                    pagesElements = document.select("div.separator");
+                }
                 linkElements = pagesElements.select("a");
-//                frameElements = linkElements.select("img");
+                frameElements = linkElements.select("img");
 
-                for (Element image: linkElements) {
-                    images.add(image.attr("href"));
+                for (Element image: frameElements) {
+                    images.add(image.attr("src"));
                 }
 
                 currentChapter.setFrames(images);

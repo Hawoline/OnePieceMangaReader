@@ -35,6 +35,10 @@ public class FramesAdapter extends RecyclerView.Adapter<FramesAdapter.FramesView
         return chapter.getFrames().size();
     }
 
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
+    }
+
     class FramesViewHolder extends RecyclerView.ViewHolder {
         LinearLayout frame_parent;
         ImageView frame_image_view;
