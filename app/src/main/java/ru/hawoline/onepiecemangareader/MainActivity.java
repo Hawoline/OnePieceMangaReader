@@ -124,7 +124,6 @@ public class MainActivity extends Activity implements MainView {
         Document document;
 
         Elements pagesElements;
-        Elements linkElements;
         Elements frameElements;
 
         @Override
@@ -137,11 +136,10 @@ public class MainActivity extends Activity implements MainView {
                 if (pagesElements.isEmpty()) {
                     pagesElements = document.select("div.separator");
                 }
-                linkElements = pagesElements.select("a");
-                frameElements = linkElements.select("img");
+                frameElements = pagesElements.select("a");
 
                 for (Element image: frameElements) {
-                    images.add(image.attr("src"));
+                    images.add(image.attr("href"));
                 }
 
                 currentChapter.setFrames(images);
