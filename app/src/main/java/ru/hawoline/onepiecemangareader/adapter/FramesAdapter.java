@@ -1,4 +1,4 @@
-package ru.hawoline.onepiecemangareader;
+package ru.hawoline.onepiecemangareader.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
+
+import ru.hawoline.onepiecemangareader.R;
+import ru.hawoline.onepiecemangareader.model.Chapter;
 
 public class FramesAdapter extends RecyclerView.Adapter<FramesAdapter.FramesViewHolder> {
     private Chapter chapter;
@@ -35,7 +38,7 @@ public class FramesAdapter extends RecyclerView.Adapter<FramesAdapter.FramesView
         return chapter.getFrames().size();
     }
 
-    class FramesViewHolder extends RecyclerView.ViewHolder {
+    public class FramesViewHolder extends RecyclerView.ViewHolder {
         LinearLayout frame_parent;
         ImageView frame_image_view;
 

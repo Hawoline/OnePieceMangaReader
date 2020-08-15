@@ -1,4 +1,4 @@
-package ru.hawoline.onepiecemangareader;
+package ru.hawoline.onepiecemangareader.activity;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -12,6 +12,13 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import ru.hawoline.onepiecemangareader.view.MainView;
+import ru.hawoline.onepiecemangareader.R;
+import ru.hawoline.onepiecemangareader.adapter.ChaptersAdapter;
+import ru.hawoline.onepiecemangareader.adapter.FramesAdapter;
+import ru.hawoline.onepiecemangareader.model.Chapter;
+import ru.hawoline.onepiecemangareader.model.Manga;
 
 public class MainActivity extends Activity implements MainView {
     private Manga onePieceManga;

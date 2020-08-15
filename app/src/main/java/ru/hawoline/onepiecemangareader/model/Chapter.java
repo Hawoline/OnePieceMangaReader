@@ -1,4 +1,4 @@
-package ru.hawoline.onepiecemangareader;
+package ru.hawoline.onepiecemangareader.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

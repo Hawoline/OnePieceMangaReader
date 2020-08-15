@@ -1,7 +1,9 @@
-package ru.hawoline.onepiecemangareader;
+package ru.hawoline.onepiecemangareader.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import ru.hawoline.onepiecemangareader.model.Chapter;
 
 public class Manga implements Serializable {
     private String baseUrl;

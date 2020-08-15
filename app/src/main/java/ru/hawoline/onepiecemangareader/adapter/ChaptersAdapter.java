@@ -1,4 +1,4 @@
-package ru.hawoline.onepiecemangareader;
+package ru.hawoline.onepiecemangareader.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import ru.hawoline.onepiecemangareader.view.MainView;
+import ru.hawoline.onepiecemangareader.R;
+import ru.hawoline.onepiecemangareader.model.Chapter;
 
 public class ChaptersAdapter extends RecyclerView.Adapter<ChaptersAdapter.ChapterViewHolder>{
     private ArrayList<Chapter> chapters;
@@ -51,7 +55,7 @@ public class ChaptersAdapter extends RecyclerView.Adapter<ChaptersAdapter.Chapte
         this.chapters = chapters;
     }
 
-    class ChapterViewHolder extends RecyclerView.ViewHolder {
+    public class ChapterViewHolder extends RecyclerView.ViewHolder {
         LinearLayout chapter_parent;
         TextView chapter_name_text_view;
 
